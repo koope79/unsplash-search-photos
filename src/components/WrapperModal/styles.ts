@@ -3,8 +3,7 @@ import tw from "twin.macro";
 export default {
   wrapperModal: (visible: boolean) => [
     tw`
-      fixed inset-0
-      z-[1000]
+      relative z-[1000]
       animate-fadeIn
     `,
     !visible && tw`
