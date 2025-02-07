@@ -45,12 +45,18 @@ const SearchPhoto: SearchPhotoComp = () => {
     }
   });
 
-  const onClickSearch = useEvent(() => searchValue && setQuery(searchValue));
-
   const onSearch = useEvent(() => {
     if (!isFetching && !isRefetching) {
       resetInfiniteQueryPagination();
       refetch();
+    }
+  });
+
+  const onClickSearch = useEvent(() => {
+    if (query === searchValue) {
+      onSearch();
+    } else if (searchValue) {
+      setQuery(searchValue);
     }
   });
 
