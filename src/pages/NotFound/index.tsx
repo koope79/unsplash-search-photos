@@ -1,5 +1,4 @@
 import React from "react";
-import { useTitle } from "react-use";
 import { useNavigate } from "react-router-dom";
 import { Button } from "src/components";
 import { RoutesEnum } from "src/foundation";
@@ -8,8 +7,6 @@ import styles from "./styles";
 
 const NotFoundPage: NotFoundPageComp = () => {
   const navigate = useNavigate();
-
-  useTitle("Not Fount");
 
   return (
     <div css={styles.container()}>
