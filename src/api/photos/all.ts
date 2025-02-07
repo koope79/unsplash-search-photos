@@ -24,7 +24,7 @@ export const allSearchPhotosRequest = async (
     total_pages: number
     results: PhotosDto[]
   }>(
-    `${process.env.API_SEARCH_PHOTOS}/search/photos?${params}`,
+    `https://api.unsplash.com/search/photos?${params}`,
   );
 
   return data;
