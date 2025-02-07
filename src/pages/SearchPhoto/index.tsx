@@ -45,7 +45,7 @@ const SearchPhoto: SearchPhotoComp = () => {
     }
   });
 
-  const onClickSearch = useEvent(() => setQuery(searchValue));
+  const onClickSearch = useEvent(() => searchValue && setQuery(searchValue));
 
   const onSearch = useEvent(() => {
     if (!isFetching && !isRefetching) {
