@@ -2,13 +2,11 @@ import tw, { css } from "twin.macro";
 import { mediaQuery } from "src/shared/mixins";
 
 export default {
-  wrapper: (marginBottom: number) => [
+  wrapper: () => [
     tw`
       w-full
       grow
-    `,
-    css`
-      margin-bottom: ${marginBottom}px;
+      mb-[90px] // contentMarginBottom
     `,
   ],
   container: () => [
@@ -27,7 +25,7 @@ export default {
       }
     `,
   ],
-  searchWrapper: (show: boolean, headerHeight: number) => [
+  searchWrapper: (show: boolean) => [
     tw`
       fixed left-1/2 -translate-x-1/2
       z-[100]
@@ -37,11 +35,9 @@ export default {
     `,
     show && [
       tw`
+        h-[104px] // headerHeight
         left-auto translate-x-0
         justify-start items-end
-      `,
-      css`
-        height: ${headerHeight}px;
       `,
     ],
   ],
@@ -72,12 +68,10 @@ export default {
       }
     `,
   ],
-  contentWrapper: (headerHeight: number) => [
+  contentWrapper: () => [
     tw`
       relative flex flex-col
-    `,
-    css`
-      padding-top: ${headerHeight}px;
+      pt-[104px]  // headerHeight
     `,
   ],
   contentContainer: () => [
@@ -106,12 +100,10 @@ export default {
       pt-[40px]
     `,
   ],
-  loaderContainer: (headerHeight: number, marginBottom: number) => [
+  loaderContainer: () => [
     tw`
       flex items-center justify-center
-    `,
-    css`
-      height: calc(100vh - ${headerHeight}px - ${marginBottom}px);
+      h-[calc(100vh - 104px - 90px)]  // 100vh - headerHeight - contentMarginBottom
     `,
   ],
 };

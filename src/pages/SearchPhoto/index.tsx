@@ -11,8 +11,6 @@ import { Photo, PhotoSkeleton } from "./components";
 import { SearchPhotoComp } from "./types";
 import styles from "./styles";
 
-const HEADER_HEIGHT_PX = 104;
-const CONTENT_MARGIN_BOTTOM_PX = 90;
 const COUNT_PHOTO_SKELETON = 10;
 
 const SearchPhoto: SearchPhotoComp = () => {
@@ -67,11 +65,14 @@ const SearchPhoto: SearchPhotoComp = () => {
   }, [query, onSearch]);
 
   return (
-    <main css={styles.wrapper(CONTENT_MARGIN_BOTTOM_PX)}>
+    <main css={styles.wrapper()}>
       <div css={styles.container()}>
         <div css={styles.searchWrapper(
-          (!!(photosData && photosData.pages.length > 0) || isEmptyContent || isFetching),
-          HEADER_HEIGHT_PX
+          (
+            !!(photosData && photosData.pages.length > 0) || 
+            isEmptyContent || 
+            isFetching
+          )
         )}>
           <div css={styles.searchContainer()}>
             <Input
@@ -88,7 +89,7 @@ const SearchPhoto: SearchPhotoComp = () => {
             </Button>
           </div>
         </div>
-        <div css={styles.contentWrapper(HEADER_HEIGHT_PX)}>
+        <div css={styles.contentWrapper()}>
           {(
             photosData &&
             photosData.pages.length > 0 &&
@@ -122,7 +123,7 @@ const SearchPhoto: SearchPhotoComp = () => {
             isRefetching ||
             (isFetching && !hasNextPage)
           ) && (
-            <div css={styles.loaderContainer(HEADER_HEIGHT_PX, CONTENT_MARGIN_BOTTOM_PX)}>
+            <div css={styles.loaderContainer()}>
               <Spinner />
             </div>
           )}
