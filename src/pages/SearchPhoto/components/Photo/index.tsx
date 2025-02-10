@@ -30,7 +30,11 @@ const Photo: PhotoComp = ({
                 }}
               >
                 <div css={styles.photoLargeContainer()}>
-                  <img src={imgUrls.full} alt={"..."} />
+                  <img
+                    css={styles.photoLarge()}
+                    src={imgUrls.full}
+                    alt={"..."}
+                  />
                 </div>
               </WrapperModal>
             </Portal>

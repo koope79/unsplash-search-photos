@@ -23,13 +23,30 @@ export default {
   ],
   wrapperModalContainer: () => [
     tw`
-      w-[700px] h-[700px]
+      h-full w-full
+      p-[40px]
       bg-transparent
+    `,
+    css`
+      @media (max-width: 575px) {
+        ${tw`
+          p-0
+        `}
+      }
     `,
   ],
   photoLargeContainer: () => [
+    tw`
+      h-full
+      flex items-center justify-center
+    `,
     css`
       ${generalMixins.lockSelectText()}
+    `,
+  ],
+  photoLarge: () => [
+    tw`
+      max-h-full
     `,
   ],
 };
