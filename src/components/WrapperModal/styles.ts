@@ -4,19 +4,22 @@ export default {
   wrapperModal: (visible: boolean, animationDuration: number) => [
     tw`
       relative z-[1000]
-      animate-fadeIn
+      transition-all
     `,
     css`
-      animation-duration: ${animationDuration}ms;
+      transition-duration: ${animationDuration}ms;
     `,
-    !visible && [
+    visible && [
       tw`
-        animate-fadeOut
+        animate-fadeIn
       `,
       css`
         animation-duration: ${animationDuration}ms;
       `,
     ],
+    !visible && tw`
+      opacity-0
+    `,
   ],
   backdrop: () => [
     tw`
