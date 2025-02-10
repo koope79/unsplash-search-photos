@@ -6,9 +6,10 @@ export default {
       relative align-baseline
       flex items-center gap-[4px]
       bg-basicGrey rounded-[12px]
+      hover:bg-basicHoverGrey
     `,
   ],
-  input: (disabled: boolean) => [
+  input: (disabled: boolean, isEmpty: boolean) => [
     tw`
       w-full h-full rounded-[12px]
       block bg-transparent
@@ -19,6 +20,9 @@ export default {
     `,
     disabled && tw`
       cursor-default text-basicTextNonActive
+    `,
+    !isEmpty && tw`
+      pr-[8px]
     `,
   ],
   clearInput: () => [

@@ -41,6 +41,7 @@ module.exports = {
         basicGrey: "#EEEEEE",
         basicGrey2: "#787878",
         basicGrey3: "#EBEBEB",
+        basicHoverGrey: "#E6E6E6",
       },
     },
   },

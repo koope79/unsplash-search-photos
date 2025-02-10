@@ -4,17 +4,11 @@ import { generalMixins } from "src/shared/mixins";
 export default {
   container: () => [
     tw`
-      w-[200px] h-[200px]
+      w-full
+      [aspect-ratio: 1 / 1]
       rounded-[4px]
       border border-basicGrey3
       overflow-hidden
-    `,
-    css`
-      @media (max-width: 575px) {
-        ${tw`
-          w-[110px] h-[110px]
-        `}
-      }
     `,
     css`
       ${generalMixins.lockSelectText()}

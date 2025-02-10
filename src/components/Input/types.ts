@@ -14,8 +14,9 @@ type InputProps = {
 }
 
 type SearchTextInputProps = {
-  value?: string
-  placeholder?: string
+  value: string
   onChangeValue: (value: string) => void
+  onSearch?: () => void
+  placeholder?: string
   maxLength?: number
 }

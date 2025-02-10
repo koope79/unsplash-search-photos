@@ -39,6 +39,13 @@ export default {
         left-auto translate-x-0
         justify-start items-end
       `,
+      css`
+        @media (max-width: 575px) {
+          ${tw`
+            h-[74px]
+          `}
+        }
+      `,
     ],
   ],
   searchContainer: () => [
@@ -73,20 +80,22 @@ export default {
       relative flex flex-col
       pt-[104px]  // headerHeight
     `,
+    css`
+      @media (max-width: 575px) {
+        ${tw`
+          pt-[74px]
+        `}
+      }
+    `,
   ],
   contentContainer: () => [
     tw`
       grid 
       grid-rows-[auto] 
-      grid-cols-[repeat(auto-fill, minmax(200px, 1fr))] 
+      grid-cols-[repeat(auto-fill, minmax(200px, 1fr))]
       gap-[8px]
     `,
     css`
-      @media (max-width: 768px) {
-        ${tw`
-          place-items-center
-        `}
-      }
       @media (max-width: 575px) {
         ${tw`
           grid-cols-[repeat(auto-fill, minmax(110px, 1fr))]
@@ -104,6 +113,13 @@ export default {
     tw`
       flex items-center justify-center
       h-[calc(100vh - 104px - 90px)]  // 100vh - headerHeight - contentMarginBottom
+    `,
+    css`
+      @media (max-width: 575px) {
+        ${tw`
+          h-[calc(100vh - 74px - 90px)]
+        `}
+      }
     `,
   ],
 };

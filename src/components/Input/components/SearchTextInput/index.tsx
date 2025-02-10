@@ -8,6 +8,7 @@ const SearchTextInput: SearchTextInputComp = ({
   value = "",
   placeholder = " ",
   onChangeValue,
+  onSearch = () => void (0),
   required = false,
   additionalCss = {},
   maxLength = 200,
@@ -26,9 +27,14 @@ const SearchTextInput: SearchTextInputComp = ({
         value={value}
         required={required}
         placeholder={placeholder}
-        css={[styles.input(disabled), additionalCss.input]}
+        css={[styles.input(disabled, value.length > 0), additionalCss.input]}
         maxLength={maxLength}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) => onChangeValue(e.target.value)}
+        onKeyDown={(event) => {
+          if (event.key === "Enter") {
+            onSearch();
+          }
+        }}
         disabled={disabled}
       />
       {(value.length > 0 && !disabled) && (

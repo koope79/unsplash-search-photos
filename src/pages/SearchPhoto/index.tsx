@@ -79,6 +79,7 @@ const SearchPhoto: SearchPhotoComp = () => {
               type={"search"}
               value={searchValue}
               onChangeValue={setSearchValue}
+              onSearch={onClickSearch}
               placeholder={"Телефоны, яблоки, груши..."}
               additionalCss={{
                 container: styles.searchInputContainer(),
