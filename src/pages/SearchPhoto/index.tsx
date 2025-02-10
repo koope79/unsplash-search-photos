@@ -47,6 +47,7 @@ const SearchPhoto: SearchPhotoComp = () => {
     if (!isFetching && !isRefetching) {
       resetInfiniteQueryPagination();
       refetch();
+      window.scrollTo(0, 0);
     }
   });
 
