@@ -3,6 +3,8 @@ import { SvgCloseIcon } from "src/svgx";
 import { WrapperModalComp } from "./types";
 import styles from "./styles";
 
+const ANIMATION_DURATION_MS = 300;
+
 const WrapperModal: WrapperModalComp = ({
   onClose,
   children,
@@ -18,7 +20,7 @@ const WrapperModal: WrapperModalComp = ({
     if (!visible) {
       const timeout = setTimeout(() => {
         onClose();
-      }, 300);
+      }, ANIMATION_DURATION_MS);
 
       return () => {
         clearTimeout(timeout);
@@ -26,11 +28,22 @@ const WrapperModal: WrapperModalComp = ({
     }
   }, [visible, onClose]);
 
+  useEffect(() => {
+    document.body.style.cssText = `
+      overflow: hidden;
+      padding-right: ${window.innerWidth - document.body.offsetWidth}px;
+    `;
+
+    return () => {
+      document.body.style.cssText = `
+        overflow: auto;
+        padding-right: 0;
+      `;
+    };
+  }, []);
+
   return (
-    <div
-      css={[styles.wrapperModal(visible), additionalCss.wrapperModal]}
-      data-bodyscroll={false}
-    >
+    <div css={[styles.wrapperModal(visible, ANIMATION_DURATION_MS), additionalCss.wrapperModal]}>
       <div css={[styles.backdrop(), additionalCss.backdrop]}>
         <div css={[styles.container(), additionalCss.container]}>
           <div

@@ -45,7 +45,6 @@ const CustomStyles = createGlobalStyle`
     width: 100%;
     margin: 0;
     padding: 0;
-    scrollbar-gutter: stable;
   }
 
   body {
@@ -53,10 +52,6 @@ const CustomStyles = createGlobalStyle`
     width: 100%;
     margin: 0;
     padding: 0;
-
-    &:has([data-bodyscroll="false"]) {
-      overflow: hidden;
-    }
   }
 
   #root {

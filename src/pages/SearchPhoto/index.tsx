@@ -107,7 +107,9 @@ const SearchPhoto: SearchPhotoComp = () => {
                     </Fragment>))
                 ))}
                 {isFetchingNextPage && (
-                  new Array(COUNT_PHOTO_SKELETON).fill(null).map((_, index) => <PhotoSkeleton key={index} />)
+                  new Array(COUNT_PHOTO_SKELETON)
+                    .fill(null)
+                    .map((_, index) => <PhotoSkeleton key={index} />)
                 )}
               </div>
             </ScrollPaginationElement>

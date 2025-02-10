@@ -1,14 +1,22 @@
-import tw from "twin.macro";
+import tw, { css } from "twin.macro";
 
 export default {
-  wrapperModal: (visible: boolean) => [
+  wrapperModal: (visible: boolean, animationDuration: number) => [
     tw`
       relative z-[1000]
       animate-fadeIn
     `,
-    !visible && tw`
-      animate-fadeOut
+    css`
+      animation-duration: ${animationDuration}ms;
     `,
+    !visible && [
+      tw`
+        animate-fadeOut
+      `,
+      css`
+        animation-duration: ${animationDuration}ms;
+      `,
+    ],
   ],
   backdrop: () => [
     tw`

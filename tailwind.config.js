@@ -8,8 +8,8 @@ module.exports = {
       sans: ["Arial", "sans-serif"],
     },
     animation: {
-      "fadeIn": "fade-in 0.3s linear",
-      "fadeOut": "fade-out 0.3s linear",
+      "fadeIn": "fade-in linear",
+      "fadeOut": "fade-out linear",
     },
     keyframes: {
       "fade-in": {
